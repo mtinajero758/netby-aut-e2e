@@ -1,0 +1,46 @@
+==========================================================
+HALLAZGOS Y CONCLUSIONES DEL EJERCICIO - PATRÓN SCREENPLAY
+==========================================================
+Proyecto: Automatización de Compra (SauceLabs/E-commerce)
+Arquitectura: Serenity BDD + Cucumber + Screenplay Pattern
+
+1. HALLAZGOS TÉCNICOS
+------------------------------------------------------------------------------------
+* Implementación de Screenplay: Se aplicó exitosamente el patrón Screenplay,
+  separando las preocupaciones mediante Actores, Tareas (Tasks), Acciones
+  e Interrogaciones (Questions). Esto permitió un código más legible y
+  orientado al lenguaje de negocio.
+
+* Gestión de Errores (NoSuchElementException): Durante la ejecución, se
+  detectó un fallo en la localización del elemento '#finish'. El hallazgo
+  indicó que el Actor intentó realizar la acción 'Finalizar Compra' sin
+  haber completado la tarea previa de 'Ingresar Datos de Envío'. En
+  Screenplay, esto se resolvió asegurando la secuencia correcta de
+  Tasks dentro del flujo del Actor.
+
+* Estabilidad del Navegador: A pesar de los avisos de versión de CDP para
+  Chrome 144, el uso de 'serenity.conf' con capacidades de 'goog:chromeOptions'
+  permitió que el Actor interactuara con los elementos de forma estable
+  y maximizada.
+
+* Evidencia Visual: La configuración 'FOR_EACH_ACTION' en Serenity permitió
+  que cada "Task" y "Interaction" del Actor quedara documentada con una
+  captura de pantalla automática en el reporte final.
+
+2. CONCLUSIONES
+------------------------------------------------------------------------------------
+* Escalabilidad: El uso de Screenplay garantiza que, a medida que el
+  proyecto crezca (más productos, diferentes métodos de pago), solo
+  será necesario crear nuevas Tasks o Actions, reutilizando el código
+  existente de manera eficiente.
+
+* Legibilidad: Los Step Definitions se mantuvieron limpios, delegando
+  toda la responsabilidad al Actor (ej. 'actor.attemptsTo(RealizarCompra.conDatos(...))'),
+  lo que facilita el mantenimiento por parte de otros automatizadores.
+
+* Resultado Final: El ejercicio concluyó con éxito (Exit Code 0) tras
+  corregir la secuencia de navegación, demostrando que la combinación
+  de Serenity y Screenplay es la opción más sólida para pruebas E2E
+  profesionales.
+
+------------------------------------------------------------------------------------
