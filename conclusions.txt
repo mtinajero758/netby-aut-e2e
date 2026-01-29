@@ -27,7 +27,15 @@ Arquitectura: Serenity BDD + Cucumber + Screenplay Pattern
   que cada "Task" y "Interaction" del Actor quedara documentada con una
   captura de pantalla automática en el reporte final.
 
-2. CONCLUSIONES
+2. Limitaciones y Mejoras:
+------------------------------------------------------------------------------------
+- El manejo de datos actual es estático; se propone como mejora futura la
+  integración de Serenity Data-Driven con archivos CSV para cubrir múltiples
+  perfiles de usuario (standard_user, locked_out_user, etc.).
+- Se recomienda la implementación de un sistema de reintentos (Retries) para
+  evitar "flakiness" en ejecuciones dentro de entornos de CI/CD inestables.
+
+3. CONCLUSIONES
 ------------------------------------------------------------------------------------
 * Escalabilidad: El uso de Screenplay garantiza que, a medida que el
   proyecto crezca (más productos, diferentes métodos de pago), solo
@@ -42,5 +50,4 @@ Arquitectura: Serenity BDD + Cucumber + Screenplay Pattern
   corregir la secuencia de navegación, demostrando que la combinación
   de Serenity y Screenplay es la opción más sólida para pruebas E2E
   profesionales.
-
 ------------------------------------------------------------------------------------
