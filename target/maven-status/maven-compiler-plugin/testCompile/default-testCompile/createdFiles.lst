@@ -10,6 +10,7 @@ nttdata\questions\OrderConfirmation.class
 nttdata\userinterfaces\CheckoutCompletePage.class
 nttdata\userinterfaces\CartPage.class
 nttdata\tasks\Checkout.class
+nttdata\questions\ConfirmationMessage.class
 nttdata\userinterfaces\ProductsPage.class
 nttdata\userinterfaces\LoginPage.class
 nttdata\actors\OnlineCastSetup.class

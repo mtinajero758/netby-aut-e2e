@@ -6,6 +6,7 @@ C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\userinterfaces\Lo
 C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\stepdefinitions\PurchaseStepDefinitions.java
 C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\tasks\FinishPurchase.java
 C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\runners\CucumberTestSuite.java
+C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\questions\ConfirmationMessage.java
 C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\tasks\AddProducts.java
 C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\hooks\ScreenplayHooks.java
 C:\Users\manue\IdeaProjects\serenity-e2e\src\test\java\nttdata\userinterfaces\CheckoutOverviewPage.java

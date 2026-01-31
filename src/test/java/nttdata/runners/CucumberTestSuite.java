@@ -1,19 +1,13 @@
 package nttdata.runners;
 
+import io.cucumber.junit.CucumberOptions;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-
-@RunWith(Cucumber.class)
+@RunWith(CucumberWithSerenity.class) //
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "nttdata.stepdefinitions",
-        plugin = {
-                "pretty",
-                "html:target/cucumber-report.html"
-        },
-        monochrome = true
+        glue = "nttdata.stepdefinitions"
 )
-public class CucumberTestSuite {
-}
+public class CucumberTestSuite {}
+

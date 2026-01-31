@@ -1,58 +1,55 @@
 package nttdata.stepdefinitions;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import java.time.Duration;
+import nttdata.tasks.Login;
+import nttdata.tasks.AddProducts;
+import nttdata.tasks.Checkout;
+import nttdata.questions.ConfirmationMessage;
+import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PurchaseStepDefinitions {
 
-    private WebDriver driver;
-
-    @Given("el usuario inicia sesion")
-    public void el_usuario_inicia_sesion() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
-
-        // Lógica de login
-        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        driver.findElement(By.id("password")).sendKeys("secret_sauce");
-        driver.findElement(By.id("login-button")).click();
+    @Before
+    public void setTheStage() {
+        // Configura el escenario para usar actores [cite: 189]
+        OnStage.setTheStage(new OnlineCast());
     }
 
-    @When("realiza una compra")
-    public void realiza_una_compra() {
-        // Agregar dos productos
-        driver.findElement(By.xpath("(//button[text()='Add to cart'])[1]")).click();
-        driver.findElement(By.xpath("(//button[text()='Add to cart'])[1]")).click();
+    // Este método permite usar el Scenario Outline con diferentes usuarios
+    @Given("el usuario inicia sesion con {string} y {string}")
+    public void el_usuario_inicia_sesion_con_y(String usuario, String password) {
+        theActorCalled("Manuel").attemptsTo(
+                Open.url("https://www.saucedemo.com/"),
+                Login.withCredentials(usuario, password)
+        );
+    }
 
-        // Ir al carrito
-        driver.findElement(By.className("shopping_cart_link")).click();
-
-        // Checkout y Formulario
-        driver.findElement(By.id("checkout")).click();
-        driver.findElement(By.id("first-name")).sendKeys("Manuel");
-        driver.findElement(By.id("last-name")).sendKeys("Tinajero");
-        driver.findElement(By.id("postal-code")).sendKeys("12345");
-        driver.findElement(By.id("continue")).click();
-
-        // Finalizar
-        driver.findElement(By.id("finish")).click();
+    // Este método une el paso del Outline con la Task que ya tienes
+    @When("realiza una compra de productos")
+    public void realiza_una_compra_de_productos() {
+        theActorInTheSpotlight().attemptsTo(
+                AddProducts.toCart(),
+                Checkout.withPersonalInformation("Manuel", "Tinajero", "12345")
+        );
     }
 
     @Then("debe ver la confirmacion de compra")
     public void debe_ver_la_confirmacion_de_compra() {
-        String mensaje = driver.findElement(By.className("complete-header")).getText();
-        Assert.assertEquals("THANK YOU FOR YOUR ORDER!", mensaje.toUpperCase());
 
-        if (driver != null) {
-            driver.quit();
-        }
+        theActorInTheSpotlight().should(
+                seeThat("El mensaje de agradecimiento",
+                        ConfirmationMessage.value(),
+                        equalTo("Thank you for your order!"))
+        );
     }
 }
