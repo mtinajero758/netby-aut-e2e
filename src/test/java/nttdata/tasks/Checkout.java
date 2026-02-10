@@ -15,7 +15,6 @@ public class Checkout implements Task {
     private final String lastName;
     private final String zipCode;
 
-    // Selectores (Asegúrate de tener el botón FINISH)
     public static final Target FIRST_NAME = Target.the("First Name").located(By.id("first-name"));
     public static final Target LAST_NAME = Target.the("Last Name").located(By.id("last-name"));
     public static final Target ZIP_CODE = Target.the("Zip Code").located(By.id("postal-code"));
@@ -35,7 +34,7 @@ public class Checkout implements Task {
                 Enter.theValue(lastName).into(LAST_NAME),
                 Enter.theValue(zipCode).into(ZIP_CODE),
                 Click.on(CONTINUE_BUTTON),
-                Click.on(FINISH_BUTTON) // <-- SI FALTA ESTO, EL TEST FALLA EN EL SIGUIENTE PASO
+                Click.on(FINISH_BUTTON)
         );
     }
 

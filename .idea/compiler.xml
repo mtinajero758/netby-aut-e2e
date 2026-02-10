@@ -10,6 +10,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="serenity-screenplay-e2e" />
+        <module name="serenity-e2e" />
       </profile>
     </annotationProcessing>
   </component>

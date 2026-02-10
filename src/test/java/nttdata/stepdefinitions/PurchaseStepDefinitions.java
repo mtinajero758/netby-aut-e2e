@@ -25,7 +25,6 @@ public class PurchaseStepDefinitions {
         OnStage.setTheStage(new OnlineCast());
     }
 
-    // Este método permite usar el Scenario Outline con diferentes usuarios
     @Given("el usuario inicia sesion con {string} y {string}")
     public void el_usuario_inicia_sesion_con_y(String usuario, String password) {
         theActorCalled("Manuel").attemptsTo(
@@ -34,7 +33,6 @@ public class PurchaseStepDefinitions {
         );
     }
 
-    // Este método une el paso del Outline con la Task que ya tienes
     @When("realiza una compra de productos")
     public void realiza_una_compra_de_productos() {
         theActorInTheSpotlight().attemptsTo(

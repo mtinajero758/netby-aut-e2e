@@ -11,13 +11,11 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class ConfirmationMessage implements Question<String> {
 
-    // Selector Universal: Busca cualquier elemento que contenga el texto de agradecimiento
     public static final Target COMPLETE_HEADER = Target.the("Mensaje de confirmación de compra")
             .located(By.xpath("//*[contains(text(),'Thank you for your order!')]"));
 
     @Override
     public String answeredBy(Actor actor) {
-        // Esperamos explícitamente a que el mensaje aparezca en el DOM
         actor.attemptsTo(
                 WaitUntil.the(COMPLETE_HEADER, isVisible()).forNoMoreThan(5).seconds()
         );
