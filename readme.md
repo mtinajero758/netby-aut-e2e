@@ -1,5 +1,5 @@
 ===============================================================
-# Proyecto de Automatización E2E y Pruebas de Carga - NTT DATA
+# Proyecto de Automatización E2E y Pruebas de Carga
 ===============================================================
 Desarrollado por: MATC
 
@@ -30,7 +30,7 @@ Este proyecto contiene la solución a los ejercicios de automatización de prueb
 ## 3. Instrucciones para ejecutar los test
 ------------------------------------------------------------------------------------------------------------------
 Opción A: Desde IntelliJ IDEA (Recomendado para Debugging)
-1. Abrir la clase 'CucumberTestSuite' ubicada en 'src/test/java/nttdata/runners/'.
+1. Abrir la clase 'CucumberTestSuite' ubicada en 'src/test/java/netby/runners/'.
 2. Hacer clic derecho sobre la clase y seleccionar "Run 'CucumberTestSuite'".
 
 Opción B: Desde la Terminal (Consola de comandos o Terminal de IntelliJ)

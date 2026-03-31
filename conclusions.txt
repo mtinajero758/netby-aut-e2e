@@ -27,6 +27,11 @@ Arquitectura: Serenity BDD + Cucumber + Screenplay Pattern
   que cada "Task" y "Interaction" del Actor quedara documentada con una
   captura de pantalla automática en el reporte final.
 
+*Se ha identificado que el usuario visual_user presenta inconvenientes en la
+visualización de imágenes dentro del sistema. Al intentar acceder a los contenidos,
+las imágenes no cargan correctamente o presentan errores de visualización,
+lo cual afecta la experiencia de uso y la correcta validación de la información.
+
 2. Limitaciones y Mejoras:
 ------------------------------------------------------------------------------------
 - El manejo de datos actual es estático; se propone como mejora futura la

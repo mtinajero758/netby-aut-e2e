@@ -6,12 +6,12 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>nrr-data</groupId>
+  <groupId>netby</groupId>
   <artifactId>serenity-e2e</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>NRR Data - Serenity E2E</name>
+  <name>Serenity E2E</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
